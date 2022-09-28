@@ -19,8 +19,7 @@ public class Autor {
 
     private String nome;
 
-    public Autor(String nome, Long id){
+    public Autor(String nome){
         this.nome = nome;
-        this.id = id;
     }
 }
