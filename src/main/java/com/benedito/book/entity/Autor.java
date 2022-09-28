@@ -1,9 +1,16 @@
 package com.benedito.book.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Table(name = "autor")
 @Entity(name = "autor")
+@Getter
+@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Autor {
 
     @Id
@@ -12,7 +19,8 @@ public class Autor {
 
     private String nome;
 
-    public Autor(String nome){
+    public Autor(String nome, Long id){
         this.nome = nome;
+        this.id = id;
     }
 }

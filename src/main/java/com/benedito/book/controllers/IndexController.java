@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-    @GetMapping("/listar")
+    @GetMapping("/lista")
     public ModelAndView getList(){
         ModelAndView mv = new ModelAndView("index");
         return mv;
