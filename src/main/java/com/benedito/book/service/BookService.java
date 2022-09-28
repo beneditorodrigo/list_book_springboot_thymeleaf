@@ -18,7 +18,7 @@ public class BookService {
         this.bookRepository.save(book);
     }
 
-    public List<Book> listarBooks(){
-        return (List<Book>) bookRepository.findAll();
+    public List<Book> findAll(){
+        return bookRepository.findAll();
     }
 }

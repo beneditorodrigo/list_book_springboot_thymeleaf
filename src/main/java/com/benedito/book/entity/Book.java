@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank

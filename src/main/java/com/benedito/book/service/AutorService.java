@@ -13,8 +13,7 @@ public class AutorService {
 
     @Autowired
     private AutorRepository autorRepository;
-    public List<Autor> getAutoresList(){
-        Iterable<Autor> autorIterable = this.autorRepository.findAll();
-        return Streamable.of(autorIterable).toList();
+    public List<Autor> findAll(){
+       return autorRepository.findAll();
     }
 }

@@ -31,7 +31,7 @@ public class BookController {
     @GetMapping("/book/form/add")
     public ModelAndView getFormAdd(){
         ModelAndView mv = new ModelAndView("bookform");
-        List<Autor> autorLista = this.autorService.getAutoresList();
+        List<Autor> autorLista = this.autorService.findAll();
         mv.addObject("autorlist", autorLista);
         return mv;
     }
@@ -45,7 +45,6 @@ public class BookController {
         }
 
         this.bookService.save(book);
-
         return "redirect:/lista";
     }
 }
