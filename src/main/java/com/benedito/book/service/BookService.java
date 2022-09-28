@@ -14,11 +14,15 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public void save(@Valid Book book){
+    public void save(Book book){
         this.bookRepository.save(book);
     }
 
     public List<Book> findAll(){
         return bookRepository.findAll();
+    }
+
+    public Book findById(Long id) {
+        return this.bookRepository.findById(id).get();
     }
 }

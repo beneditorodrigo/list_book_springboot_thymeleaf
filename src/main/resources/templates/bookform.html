@@ -9,12 +9,20 @@
     <div th:if="${mensagem}" th:text="${mensagem}"></div>
 
     <form action="/book/form/save" method="POST">
-        Nome: <input type="text" id="nome" name="nome" />
+
+        <div th:if="${book}">
+            <input type="text" readonly id="id" name="id" th:value="${book?.id}">
+        </div>
+
+        Nome: <input type="text" id="nome" name="nome"
+                     th:value="${book?.name}"
+                />
 
         Autor: <select name="autor">
             <option th:each="autor : ${autorList}"
                     th:value="${autor.id}"
                     th:text="${autor.nome}"
+                    th:selected="${autor.id} == ${book?.autor?.id}"
             />
         </select>
 

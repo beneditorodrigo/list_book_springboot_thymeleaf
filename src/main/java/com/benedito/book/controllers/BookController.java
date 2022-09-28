@@ -9,10 +9,7 @@ import com.benedito.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -45,6 +42,17 @@ public class BookController {
         }
 
         this.bookService.save(book);
-        return "redirect:/lista";
+        return "redirect:/";
+    }
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView getEdit(@PathVariable("id") Long id){
+        ModelAndView mv = new ModelAndView("bookform");
+        List<Autor> autorList = this.autorService.findAll();
+        mv.addObject("autorList", autorList);
+
+        Book book = this.bookService.findById(id);
+        mv.addObject("book", book);
+        return mv;
     }
 }
