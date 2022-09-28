@@ -2,9 +2,11 @@
     <head>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </head>
 
     <body>
+        <h1>Lista de Livros</h1>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -19,9 +21,29 @@
                 <th scope="row" th:text="${book.id}"></th>
                 <td th:text="${book.nome}"></td>
                 <td th:text="${book.autor.nome}"></td>
-                <td>@Ações</td>
+                <td>
+                    <a th:href="@{
+                        /edit/{id}
+                        (id=${book.id})
+                        }">
+                        <i class='fas fa-edit'>
+                        </i>
+                    </a>
+
+                    <a th:href="@{
+                        /delete/{id}
+                        (id=${book.id})
+                        }">
+                        <i class='fas fa-eraser'>
+                        </i>
+                    </a>
+                </td>
             </tr>
             </tbody>
         </table>
+
+        <a th:href="@{/book/form/add}">
+            <button class="btn btn-primary">Formulário Livro</button>
+        </a>
     </body>
 </html>
