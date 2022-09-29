@@ -55,4 +55,10 @@ public class BookController {
         mv.addObject("book", book);
         return mv;
     }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id){
+        this.bookService.delete(id);
+        return "redirect:/";
+    }
 }

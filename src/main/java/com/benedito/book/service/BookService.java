@@ -25,4 +25,8 @@ public class BookService {
     public Book findById(Long id) {
         return this.bookRepository.findById(id).get();
     }
+
+    public void delete(Long id) {
+        this.bookRepository.deleteById(id);
+    }
 }
